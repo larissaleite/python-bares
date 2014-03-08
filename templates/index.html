@@ -17,19 +17,36 @@
 		#form {
 			text-align:center;
 		}
+
+		#menu {
+			text-align: center;
+		}
+
+		a {
+			margin: 10px;
+		}
 		
 	</style>
 
 <body>
 	<div class="container">
+			<div id="menu">
+				<a href=""> Cadastrar Bar </a>
+				<a href=""> Listar Bares </a>				
+			</div>
+
 			<div id="form">
-				<h3> Formulario de cadastro </h3>
+				<h3> Cadastrar Bar </h3>
 				<form action="{{ url_for('bar') }}" method="POST">
 					<input type="text" placeholder="Nome do bar" name="nome" />
 					<br>
+					<input type="text" placeholder="Descricao" name="desc" />
+					<br>
+					<input type="text" placeholder="Imagem" name="img" />
+					<br>
 					<input type="textarea" placeholder="Endereco" name="end" />
 					<br>
-					<input type="text" placeholder="Horario de funcionamento" name="horario" />
+					<input type="text" placeholder="Telefone" name="tel" />
 					<br>
 					<input type="text" placeholder="Especialidade da casa" name="especialidade"/>
 					<br><br>
