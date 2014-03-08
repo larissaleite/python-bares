@@ -1,7 +1,8 @@
 #! /usr/bin/python
 # -*- coding: utf-8 -*-
 
-from flask import Flask, render_template, request
+import sqlite3
+from flask import Flask, render_template, request, g
 
 app = Flask (__name__)
 app.debug = True
