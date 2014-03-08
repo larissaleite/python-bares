@@ -42,6 +42,7 @@ def get_db():
         g.sqlite_db = connect_db()
     return g.sqlite_db
 
+""" Lista todos os bares cadastrados """
 @app.route("/listaBares", methods=["GET", "POST"])
 def listaBares():
 	db = get_db()
@@ -49,6 +50,7 @@ def listaBares():
 	bares = cur.fetchall()
 	return render_template('listaBares.html', bares=bares)
 
+""" Exibe na pagina editarBar.thml o bar referente ao id passado como parametro """
 @app.route("/editarBar/<bar_id>", methods=["GET", "POST"])
 def editarBar(bar_id):
 	db = get_db()
@@ -56,6 +58,7 @@ def editarBar(bar_id):
 	bares = cur.fetchall()
 	return render_template('editarBar.html', bares=bares)
 
+""" Remove o bar do banco de dados """
 @app.route("/removerBar/<bar_id>")
 def removerBar(bar_id):
 	db = get_db()
@@ -63,6 +66,7 @@ def removerBar(bar_id):
 	db.commit()
 	return redirect(url_for('listaBares'))
 
+""" Atualiza o bar com os novos atributos """
 @app.route("/atualizarBar/<bar_id>", methods=["GET", "POST"])
 def atualizarBar(bar_id):
 	if request.method == "POST":
@@ -78,6 +82,7 @@ def atualizarBar(bar_id):
 	db.commit()
 	return redirect(url_for('listaBares'))
 
+""" Cadastra o bar com os dados do formulário """
 @app.route("/bar", methods=["GET", "POST"])
 def bar():
 	if request.method == "POST":
