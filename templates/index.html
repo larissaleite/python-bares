@@ -1,4 +1,8 @@
 <html>
+	<head>
+		<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+
 	<style>
 
 		body {
@@ -32,7 +36,7 @@
 	<div class="container">
 			<div id="menu">
 				<a href=""> Cadastrar Bar </a>
-				<a href=""> Listar Bares </a>				
+				<a href="{{ url_for('listaBares') }}"> Bares Cadastrados </a>				
 			</div>
 
 			<div id="form">

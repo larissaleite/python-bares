@@ -1,0 +1,23 @@
+#! /usr/bin/python
+# -*- coding: utf-8 -*-
+
+from flask import Flask, render_template
+app = Flask (__name__)
+app.debug = True
+
+#@app.route("/bar", methods=["GET", "POST"])
+#def bar():
+#	if request.method == "POST":
+#		name = request.form.get("nome")
+#		endereco = request.form.get("end")
+#		horario = request.form.get("horario")
+#		especialidade = request.form.get("especialidade")
+
+#	return "Bar %" % nome, endereco, horario, especialidade
+
+@app.route("/")
+def index():
+	return render_template("teste.html")
+
+if __name__ == "__main__":
+    app.run() #herda de flask, levanta o servidor

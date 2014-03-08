@@ -1,0 +1,65 @@
+<html>
+	<head>
+		<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+
+	<style>
+
+		body {
+			margin-top:50px;
+		}
+
+		h3 {
+			font-weight:100;
+		}
+
+		input {
+			padding: 10px;
+			width: 25%;
+		}
+		
+		#form {
+			text-align:center;
+		}
+
+		#menu {
+			text-align: center;
+		}
+
+		a {
+			margin: 10px;
+		}
+		
+	</style>
+
+<body>
+	<div class="container">
+			<div id="menu">
+				<a href=""> Cadastrar Bar </a>
+				<a href="{{ url_for('listaBares') }}"> Bares Cadastrados </a>				
+			</div>
+
+			<div id="form">
+				<h3> Editar Bar </h3>
+					{% for bar in bares %}
+						<form action="/atualizarBar/{{ bar.id }}" method="POST">
+							<input type="text" placeholder="Nome do bar" value="{{ bar.nome }}" name="nome" />
+							<br>
+							<input type="text" placeholder="Descricao" value="{{ bar.descricao }}" name="desc" />
+							<br>
+							<input type="text" placeholder="Imagem" value="{{ bar.imagem }}" name="img" />
+							<br>
+							<input type="textarea" placeholder="Endereco" value="{{ bar.endereco }}" name="end" />
+							<br>
+							<input type="text" placeholder="Telefone" value="{{ bar.telefone }}" name="tel" />
+							<br>
+							<input type="text" placeholder="Especialidade da casa" value="{{ bar.especialidade }}" name="especialidade"/>
+							<br><br>
+							<input type="submit" value="Enviar" />
+						</form>	
+					{% endfor %}
+			</div>
+		</div>
+</body>
+
+</html>

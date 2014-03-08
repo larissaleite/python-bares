@@ -1,0 +1,88 @@
+<html>
+	<head>
+		<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	</head>
+
+	<style>
+
+		body {
+			margin-top:50px;
+		}
+
+		#menu {
+			text-align: center;
+		}
+
+		a {
+			margin: 10px;
+		}
+
+		#bares {
+			text-align: center;
+			margin-top: 20px; 
+		}
+
+		.panel-body {
+			padding: 0px;
+		}
+
+		table {
+			text-align: center;
+		}
+
+		th {
+			text-align: center;
+		}
+
+		#baresVazio {
+			padding:30px;
+			text-align: center;
+		}
+		
+	</style>
+
+<body>
+	<div class="container">
+			<div id="menu">
+				<a href="{{ url_for('index') }}"> Cadastrar Bar </a>
+				<a href="#"> Bares Cadastrados </a>				
+			</div>
+
+			<div id="bares">
+				<div class="panel panel-default">
+	 	 			<div class="panel-heading">Bares cadastrados</div>
+	  					<div class="panel-body">
+							<table class="table">
+								<th>Nome</th><th>Descricao</th><th>Endereco</th><th>Telefone</th><th>Especialidade</th><th></th>
+								{% for bar in bares %}
+									<tr>
+										<td>{{ bar.nome }}</td>
+										<td>{{ bar.descricao }}</td>
+										<td>{{ bar.endereco }}</td>
+										<td>{{ bar.telefone }}</td>
+										<td>{{ bar.especialidade }}</td>
+										<td><a href="/editarBar/{{ bar.id }}"><span class="glyphicon glyphicon-pencil"></span></a><a href="/removerBar/{{ bar.id }}"><span class="glyphicon glyphicon-remove"></span></a></td>									
+									</tr>
+								{% else %}
+									<div id="baresVazio">
+										<p>Nenhum bar cadastrado</p>
+										<a href="{{ url_for('index') }}"><span class="glyphicon glyphicon-plus"></span> Cadastrar Bar </a>
+									</div>
+
+									<script type="text/javascript">
+										$('th').hide();
+									</script>		
+								{% endfor %}
+							</table>
+						</div>
+				</div>		
+			</div>
+		</div><!-- .container -->
+</body>
+
+
+<script>
+
+</script>
+</html>
